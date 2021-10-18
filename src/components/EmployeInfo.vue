@@ -1,13 +1,14 @@
 <template>
   <el-form ref="form" :model="form" label-width="120px">
     <el-form-item label="头像">
-      <el-input v-model="form.name"></el-input>
+      <el-upload v-model="form.avatar"></el-upload>
     </el-form-item>
     <el-form-item label="姓名">
-      <el-input v-model="form.name"></el-input>
+      <el-input v-model="form.name" maxlength="10"></el-input>
     </el-form-item>
     <el-form-item label="入职时间">
-      <el-input v-model="form.name"></el-input>
+    <el-date-picker v-model="value1" type="date" placeholder="Pick a day">
+      </el-date-picker>
     </el-form-item>
     <el-form-item label="所在区域">
       <el-input v-model="form.name"></el-input>
@@ -22,7 +23,7 @@
       <el-input v-model="form.desc" type="textarea"></el-input>
     </el-form-item>
     <el-form-item label="住址">
-      <el-input v-model="form.desc" type="textarea"></el-input>
+      <el-input v-model="form.adress" type="textarea"></el-input>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="onSubmit">确定</el-button>
@@ -35,6 +36,7 @@
 export default {
   data() {
     return {
+      status: 'edit',
       form: {
         name: '',
         region: '',
